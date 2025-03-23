@@ -13,7 +13,7 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const indexHtml = join(serverDistFolder, 'index.server.html');
 
 var corsOptions = {
-  origin: 'http://127.0.0.1:4201',
+  origin: 'https://angularssr-remote.netlify.app',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
