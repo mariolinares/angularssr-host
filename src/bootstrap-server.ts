@@ -43,11 +43,11 @@ app.get(
   express.static(browserDistFolder, {
     maxAge: '1y',
     index: 'index.html',
-    setHeaders: (req, res, path) => {
+    setHeaders: (res, path, stat) => {
       if (path.endsWith('.json')) {
-        console.log('json', req);
+        console.log('json');
       }
-      req.setHeader('origin', 'https://angularssr-host.netlify.app');
+      res.setHeader('Access-Control-Allow-Origin', '*');
     },
   })
 );
@@ -57,7 +57,6 @@ app.get(
  */
 app.get('**', (req, res, next) => {
   const { protocol, originalUrl, baseUrl, headers } = req;
-  console.l
   commonEngine
     .render({
       bootstrap,
