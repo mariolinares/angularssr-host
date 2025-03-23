@@ -16,7 +16,7 @@ export const routes: Routes = [
         remoteName: 'angularnossr',
         exposedModule: './Component',
         fallback: DummyComponent,
-      }).then((m) => m.AppComponent),
+      }).then((m) => m.AddressFormComponent),
   },
   {
     path: 'form',
