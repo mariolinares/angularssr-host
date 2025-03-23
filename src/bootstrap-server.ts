@@ -13,7 +13,7 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const indexHtml = join(serverDistFolder, 'index.server.html');
 
 var corsOptions = {
-  origin: 'https://angularssr-remote.netlify.app/',
+  origin: '*',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -42,8 +42,14 @@ app.get(
   cors(corsOptions),
   express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html'
-  }),
+    index: 'index.html',
+    setHeaders: (req, res, path) => {
+      if (path.endsWith('.json')) {
+        console.log('json', req);
+      }
+      req.setHeader('origin', 'https://angularssr-host.netlify.app');
+    },
+  })
 );
 
 /**
@@ -51,7 +57,7 @@ app.get(
  */
 app.get('**', (req, res, next) => {
   const { protocol, originalUrl, baseUrl, headers } = req;
-
+  console.l
   commonEngine
     .render({
       bootstrap,
