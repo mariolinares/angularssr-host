@@ -1,13 +1,18 @@
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { Routes } from '@angular/router';
 import { DummyComponent } from './dummy/dummy.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        pathMatch: 'full',
+        component: HomeComponent
+    },
   {
-    path: '',
+    path: 'remote',
     loadComponent: () =>
       loadRemoteModule({
-        remoteEntry: 'https://angularssr-remote.netlify.app/remoteEntry.json',
         remoteName: 'angularremote',
         exposedModule: './Component',
         fallback: DummyComponent,
