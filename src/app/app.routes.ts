@@ -4,16 +4,16 @@ import { DummyComponent } from './dummy/dummy.component';
 import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        pathMatch: 'full',
-        component: HomeComponent
-    },
+  {
+    path: '',
+    pathMatch: 'full',
+    component: HomeComponent,
+  },
   {
     path: 'remote',
     loadComponent: () =>
       loadRemoteModule({
-        remoteName: 'angularremote',
+        remoteName: 'angularnossr',
         exposedModule: './Component',
         fallback: DummyComponent,
       }).then((m) => m.AppComponent),
