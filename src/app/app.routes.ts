@@ -7,6 +7,7 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       loadRemoteModule({
+        remoteEntry: 'https://angularssr-remote.netlify.app/remoteEntry.json',
         remoteName: 'angularremote',
         exposedModule: './Component',
         fallback: DummyComponent,
