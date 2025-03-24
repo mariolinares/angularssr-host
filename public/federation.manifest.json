@@ -1,3 +1,4 @@
 {
-	"angularnossr": "https://angular-nossr.netlify.app/remoteEntry.json"
+	"angularnossr": "https://angular-nossr.netlify.app/remoteEntry.json",
+	"angularremote": "https://angularssr-remote.netlify.app/remoteEntry.json"
 }
