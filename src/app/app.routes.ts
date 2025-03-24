@@ -19,6 +19,15 @@ export const routes: Routes = [
       }).then((m) => m.AddressFormComponent),
   },
   {
+    path: 'ssr',
+    loadComponent: () =>
+      loadRemoteModule({
+        remoteName: 'angularremote',
+        exposedModule: './Component',
+        fallback: DummyComponent,
+      }).then((m) => m.AppComponent),
+  },
+  {
     path: 'form',
     loadComponent: () =>
       import('./pages/address-form/address-form.component').then(
